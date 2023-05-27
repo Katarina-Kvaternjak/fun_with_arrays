@@ -6,6 +6,7 @@
 void write(int input_array[], int length);
 void sort_array(int input_array[], int length);
 int sum(int input_array[], int length);
+int even_numbers(int input_array[], int length);
 
 int main()
 {
@@ -26,6 +27,8 @@ int main()
     {*/
     sort_array(input_array, length);
     printf("sum is %d \n", sum(input_array, length));
+    printf("there are %d even numbers in the array \n", even_numbers(input_array, length));
+    printf("there are %d odd numbers in the array \n", length - even_numbers(input_array, length));
     system("PAUSE");
 }
 
@@ -70,4 +73,17 @@ int sum(int input_array[], int length)
         sum += input_array[i];
     }
     return (sum);
+}
+
+int even_numbers(int input_array[], int length)
+{
+    int counter = 0;
+    for (int i = 0; i < length; i++)
+    {
+        if (input_array[i] % 2 == 0)
+        {
+            counter += 1;
+        }
+    }
+    return (counter);
 }
