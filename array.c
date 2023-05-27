@@ -3,12 +3,13 @@
 #include <stdlib.h>
 
 /*functions*/
-void write(float input_array[], int length);
-void sort_array(float input_array[], int length);
+void write(int input_array[], int length);
+void sort_array(int input_array[], int length);
+int sum(int input_array[], int length);
 
 int main()
 {
-    float input_array[] = {34, 43, 3.444, 8.999, 4923904};
+    int input_array[] = {34, 43, 3, 8, 13, 9};
     int length;
 
     length = sizeof(input_array) / sizeof(input_array[0]);
@@ -24,19 +25,21 @@ int main()
     else
     {*/
     sort_array(input_array, length);
+    printf("sum is %d \n", sum(input_array, length));
+    system("PAUSE");
 }
 
-void write(float input_array[], int length)
+void write(int input_array[], int length)
 {
     for (int i = 0; i < length; i++)
     {
-        printf("%f\n", input_array[i]);
+        printf("%d\n", input_array[i]);
     }
 }
 
-void sort_array(float input_array[], int length)
+void sort_array(int input_array[], int length)
 {
-    float sorted_array[length], temp;
+    int sorted_array[length], temp;
 
     for (int i = 0; i < length; i++)
     {
@@ -57,4 +60,14 @@ void sort_array(float input_array[], int length)
     }
 
     write(sorted_array, length);
+}
+
+int sum(int input_array[], int length)
+{
+    int sum = 0;
+    for (int i = 0; i < length; i++)
+    {
+        sum += input_array[i];
+    }
+    return (sum);
 }
